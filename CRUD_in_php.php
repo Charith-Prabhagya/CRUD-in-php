@@ -23,7 +23,12 @@ function getPosts()
 if (isset($_POST['Insert'])) {
   $data = getPosts();
 
- $insert_Query ="INSERT INTO `university`.`student` (`id`, `name`, `address`, `contact`) VALUES ('$data[0]', '$data[1]', '$data[2]', '$data[3]')";
+if (empty($data[0]) || empty($data[1]) || empty($data[2]) || empty($data[3]) ) {
+   echo "* One or more required fields";
+}
+else{
+
+  $insert_Query ="INSERT INTO `university`.`student` (`id`, `name`, `address`, `contact`) VALUES ('$data[0]', '$data[1]', '$data[2]', '$data[3]')";
 
      
 
@@ -43,6 +48,10 @@ if (isset($_POST['Insert'])) {
 }
 
 }
+
+ 
+}
+
 
 
 
